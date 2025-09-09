@@ -1,0 +1,34 @@
+import time
+import board
+import neopixel
+
+
+num_pixels = 10  
+pixels = neopixel.NeoPixel(board.NEOPIXEL, num_pixels)
+
+def get_light_duration(color):
+    
+    while True:
+        
+            duration = float(input(f"Enter duration (seconds) for {color} light: "))
+            if duration > 0:
+                return duration
+
+
+greenLight = get_light_duration("Green")
+yellowLight = get_light_duration("Yellow")
+redLight = get_light_duration("Red")
+
+
+while True:
+    # this for Green light
+    pixels.fill((0, 255, 0))  
+    time.sleep(greenLight)
+    
+    # Yellow light
+    pixels.fill((255, 255, 0))  
+    time.sleep(yellowLight)
+    
+    # Red light
+    pixels.fill((255, 0, 0))  
+    time.sleep(redLight)
